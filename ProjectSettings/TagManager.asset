@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - Item
-  - 
-  - 
-  - 
+  - NavMesh
+  - Camera
+  - Ground
   - 
   - 
   - 
