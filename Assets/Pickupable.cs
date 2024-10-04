@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class Pickupable : Interactable
 {
@@ -7,10 +8,23 @@ public class Pickupable : Interactable
     public bool hovering;
     [Range(0, 1f)]public float itemCharge;
 
+    public UI uI;
+    public TextMeshProUGUI ammunitionDisplay;
+
+    public void Awake()
+    {
+        uI = FindAnyObjectByType<UI>();
+    }
+
     public void Update()
     {
         itemCharge = Math.Clamp (itemCharge + (holdingE? Time.deltaTime : -Time.deltaTime), 0, 1f);
-        if (itemCharge == 1) gameObject.SetActive(false);
+        if (itemCharge == 1) 
+        {
+            gameObject.SetActive(false);
+            uI.itemsCollected += 1;
+            ammunitionDisplay.SetText( uI.itemsCollected + " / " + "5");
+        }
     }
 
     public override void MouseOver()
