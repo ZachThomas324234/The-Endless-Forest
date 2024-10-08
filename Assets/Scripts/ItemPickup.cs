@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Search;
 
 public class ItemPickup : MonoBehaviour
 {
     public UI uI;
+    public Slider itemSlider;
 
     public GameObject item;
 
@@ -13,7 +15,7 @@ public class ItemPickup : MonoBehaviour
 
     public TextMeshProUGUI ammunitionDisplay;
 
-    [Range(0, 1.5f)]public float itemCharge;
+    [Range(0, 1.5f)]public float itemCharge, sliderCharge;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -26,7 +28,11 @@ public class ItemPickup : MonoBehaviour
     void Update()
     {
 
-        if (holdingE == true)itemCharge += Time.deltaTime;
+        if (holdingE == true)
+        {
+            itemCharge += Time.deltaTime;
+            sliderCharge += Time.deltaTime;
+        }
         else itemCharge -= Time.deltaTime;
 
         itemCharge = Math.Clamp (itemCharge, 0, 1.5f);
