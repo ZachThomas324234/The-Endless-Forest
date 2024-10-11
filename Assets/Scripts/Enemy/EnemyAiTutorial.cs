@@ -99,11 +99,11 @@ public class EnemyAiTutorial : MonoBehaviour
         {
             //Debug.Log("AttackPlayer");
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             if(rb != null)
             {
-                rb.AddForce(transform.forward * 32, ForceMode.Impulse);
-                rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+                //rb.AddForce(transform.forward * 32, ForceMode.Impulse);
+                //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             }
             
             ///End of attack code

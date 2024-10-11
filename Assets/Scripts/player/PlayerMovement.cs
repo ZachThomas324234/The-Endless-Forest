@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Properties")]
     public float Speed, normalJumpForce;
     public float MaxSpeed = 12;
-    [Range(0, 2f)]public float staminaAmount = 0;
+    public float staminaAmount = 0;
     [Range(0, 2f)]public float staminaCooldown = 0;
     [HideInInspector]public Vector3 CamF;
     [HideInInspector]public Vector3 CamR;
@@ -68,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(Movement * Speed);
         rb.AddForce(velocityXZ * -6f);
 
+        staminaAmount = Math.Clamp (staminaAmount + (isRunning? -Time.deltaTime: +Time.deltaTime), 0, 2f);
+
         LockToMaxSpeed();
     }
 
@@ -103,18 +106,20 @@ public class PlayerMovement : MonoBehaviour
     public void Run(InputAction.CallbackContext run)
     {
         //if(run.started && !td.Dashing && !crouching && !cantRun)
-        if(run.started && !crouching && !cantRun)
+        if(run.started && !crouching && !cantRun && staminaAmount >= 0)
         {
             isRunning = true;
             Speed = 60;
         }
+        
         //if(run.canceled && !td.Dashing && !crouching)
         if(run.canceled && !crouching)
         {
             isRunning = false;
-            Speed = 50;
+            Speed = 40;
         }
     }
+
 
     public void LockToMaxSpeed()
     {
@@ -162,5 +167,11 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             Speed = 70;
         }
+    }
+
+    public void CancelRun()
+    {
+        cantRun = true;
+        Speed = 40;
     }
 }

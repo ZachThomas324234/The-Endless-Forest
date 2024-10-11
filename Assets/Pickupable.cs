@@ -33,7 +33,13 @@ public class Pickupable : Interactable
         itemCharge = Math.Clamp (itemCharge + (holdingE? Time.deltaTime: -Time.deltaTime), 0, 1f);
         sliderCharge = Math.Clamp (sliderCharge + (holdingE? Time.deltaTime : -Time.deltaTime), 0, 1f);
 
-        if(holdingE && charging) itemSlider.value = itemCharge;
+        if(holdingE && charging)
+        {
+            Debug.Log(gameObject.name + " p");
+            itemSlider.value = itemCharge;
+
+        }
+            
 
         if (itemCharge == 1) 
         {
