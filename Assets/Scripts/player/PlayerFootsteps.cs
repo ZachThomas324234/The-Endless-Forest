@@ -23,7 +23,7 @@ public class PlayerFootsteps : MonoBehaviour
         if (stepTimer <= 0)
         {
             stepTimer = timeBetweenSteps;
-            am.PlayRandomSound(footsteps, 1, 1, 0.1f);
+            am.PlayRandomSound(footsteps, 0.05f, 1, 0.1f);
         }
     }
 }
