@@ -18,6 +18,7 @@ public class EnemyAiTutorial : MonoBehaviour
     public float Speed;
     public Vector3 velocityXZ;
     
+    public Animator shadowAnimation;
 
     public float health;
 
@@ -53,6 +54,8 @@ public class EnemyAiTutorial : MonoBehaviour
 
         rb.AddForce(Movement * Speed);
         rb.AddForce(velocityXZ * -20f);
+
+        shadowAnimation.speed = agent.velocity.magnitude / 2;
     }
 
     private void Patroling()

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed, normalJumpForce;
     public float MaxSpeed = 12;
     public float staminaAmount = 0;
+    public float counterMovement;
     [Range(0, 2f)]public float staminaCooldown = 0;
     [HideInInspector]public Vector3 CamF;
     [HideInInspector]public Vector3 CamR;
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         Movement = (CamF * MovementY + CamR * MovementX).normalized;
         rb.AddForce(Movement * Speed);
-        rb.AddForce(velocityXZ * -6f);
+        rb.AddForce(velocityXZ * counterMovement);
 
         staminaAmount = Math.Clamp (staminaAmount + (isRunning? -Time.deltaTime: +Time.deltaTime), 0, 2f);
 
