@@ -10236,10 +10236,6 @@ MonoBehaviour:
     m_ActionId: d18c088c-f08d-4e4e-8ad6-4290cb4021dd
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 08f0e823-9ec9-42ef-9eb2-7da1eecf8da7
-    m_ActionName: 'Player/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2075753285}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
@@ -10255,10 +10251,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c4ab2359-9b6f-4294-9430-e5868d55e3e2
     m_ActionName: 'Player/Run[/Keyboard/leftShift]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 21745b09-43eb-41e0-a74f-619b4a819fa8
-    m_ActionName: 'Player/Crouch[/Keyboard/leftCtrl]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 330585549}

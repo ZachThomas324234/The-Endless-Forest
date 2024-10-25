@@ -1,6 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

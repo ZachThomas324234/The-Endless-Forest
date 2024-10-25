@@ -17,7 +17,7 @@ public class EndScene : MonoBehaviour
         {
             Debug.Log("hello");
             Application.Quit();
-            EditorApplication.isPlaying = false;
+            //EditorApplication.isPlaying = false;
         }
     }
 }
